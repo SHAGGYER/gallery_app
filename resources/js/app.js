@@ -37,9 +37,9 @@ const router = new VueRouter({
  */
 
 import Vuex from 'vuex';
-import Store from './store';
 Vue.use(Vuex);
 
+import Store from './store';
 const store = new Vuex.Store(Store);
 
 

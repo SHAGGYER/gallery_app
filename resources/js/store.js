@@ -1,15 +1,13 @@
-const store = {
+let Store = {
     state: {
-        loading: false,
-
+        loading: true,
     },
 
     mutations: {
-        setLoading (state, value) {
+        setLoading(state, value) {
             state.loading = value;
-        },
-
-    }
+        }
+    },
 };
 
-export default store;
+export default Store;

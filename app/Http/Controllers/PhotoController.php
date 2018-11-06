@@ -24,15 +24,18 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        $path = Storage::disk('local')->putFileAs('photos', $request->file('items'), $request->file('items')->getClientOriginalName());
+        $ext = $request->file('items')->getClientOriginalExtension();
+        $filename = str_random(32).'.'.$ext;
+        $file = $request->file('items');
+        $path = Storage::disk('local')->putFileAs('public/images/photos', $file, $filename);
 
         $photo = new Photo();
         $photo->album_id = $request->album_id;
         $photo->caption = $request->caption;
-        $photo->path = $path;
         $photo->extension = $request->file('items')->getClientOriginalExtension();
+        $photo->path = $path.'.'.$photo->extension;
         $photo->mime = $request->file('items')->getMimeType();
-        $photo->file_name = str_random(32);
+        $photo->file_name = $filename;
         $photo->save();
 
         return response()->json($photo, 200);

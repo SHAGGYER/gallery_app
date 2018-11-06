@@ -22,6 +22,7 @@
     "dependencies": {
         "moment": "^2.22.2",
         "nprogress": "^0.2.0",
+        "vue-filepond": "^4.0.0",
         "vue-router": "^3.0.1",
         "vue-simple-spinner": "^1.2.8",
         "vuex": "^3.0.1"

@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Album;
+use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AlbumController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +19,11 @@ class AlbumController extends Controller
         $user = Auth::user();
 
         $albums = Album::where('user_id', $user->id)->get();
+
+        foreach ($albums as $album)
+        {
+            $album['latestPhoto'] = Photo::where('album_id', $album->id)->latest()->first();
+        }
 
         return response()->json($albums);
     }
@@ -42,8 +43,6 @@ class AlbumController extends Controller
         $album->title = $request->title;
         $album->desc = $request->desc;
         $album->save();
-
-        $album['photos'] = [];
 
         return response()->json($album, 200);
 
