@@ -1,6 +1,15 @@
 <template>
     <div class="container">
+
+        <div class="jumbotron" style="text-align: center">
+            <h1 class="display-4">Upload Photo</h1>
+        </div>
+
         <div class="card">
+
+
+
+
             <div class="card-header">Upload Photo</div>
 
             <input type="file"  name="items" data-max-files="1" required style="margin: 20px"/>

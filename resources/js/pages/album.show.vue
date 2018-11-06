@@ -7,6 +7,10 @@
                  message="Loading...">
         </spinner>
         <div v-else-if="album">
+            <div class="jumbotron" style="text-align: center">
+                <h1 class="display-4">{{ album.title }}</h1>
+            </div>
+
             <div class="card" v-bind:style="{ 'border-bottom': album.photos.length ? '1px': '0' }">
                 <div class="card-header">
                     {{ album.title }}

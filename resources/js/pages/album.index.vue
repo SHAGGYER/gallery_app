@@ -1,5 +1,9 @@
 <template>
     <div class="container">
+        <div class="jumbotron" style="text-align: center">
+            <h1 class="display-4">Albums</h1>
+        </div>
+
         <spinner class="bigSpinner"
                  size="massive"
                  line-fg-color="#4CAF50"
@@ -15,6 +19,7 @@
                          style="height: 250px"
                          alt="Card image cap">
                     <img v-else class="card-img-top" :src="baseUrl + '/images/photo.png'" style="height: 250px" />
+                    <hr />
                     <div class="card-body" style="text-align: center">
                         <h5 class="card-title">{{ album.title }}</h5>
                     </div>

@@ -64479,6 +64479,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "album-index",
@@ -64525,6 +64530,8 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
+      _vm._m(0),
+      _vm._v(" "),
       _vm.loading
         ? _c("spinner", {
             staticClass: "bigSpinner",
@@ -64568,6 +64575,8 @@ var render = function() {
                           attrs: { src: _vm.baseUrl + "/images/photo.png" }
                         }),
                     _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
                     _c(
                       "div",
                       {
@@ -64589,7 +64598,18 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "jumbotron", staticStyle: { "text-align": "center" } },
+      [_c("h1", { staticClass: "display-4" }, [_vm._v("Albums")])]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -65019,6 +65039,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -65083,6 +65107,19 @@ var render = function() {
           ? _c(
               "div",
               [
+                _c(
+                  "div",
+                  {
+                    staticClass: "jumbotron",
+                    staticStyle: { "text-align": "center" }
+                  },
+                  [
+                    _c("h1", { staticClass: "display-4" }, [
+                      _vm._v(_vm._s(_vm.album.title))
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
                 _c(
                   "div",
                   {
@@ -72087,6 +72124,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_filepond___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_filepond__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_filepond_dist_filepond_min_css__ = __webpack_require__(228);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_filepond_dist_filepond_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_filepond_dist_filepond_min_css__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -81393,6 +81439,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "jumbotron", staticStyle: { "text-align": "center" } },
+        [_c("h1", { staticClass: "display-4" }, [_vm._v("Upload Photo")])]
+      ),
+      _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [_vm._v("Upload Photo")]),
         _vm._v(" "),
