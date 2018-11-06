@@ -35,27 +35,37 @@
         {
             let $this = this;
 
-            const inputElement = document.querySelector('input[type="file"]');
+            if (this.app.user === null)
+            {
+                this.app.$router.push({name:'auth.login'});
+            }
+            else
+            {
+                const inputElement = document.querySelector('input[type="file"]');
 
-            FilePond.setOptions({
-                server: BASE_URL + '/photo?album_id='+this.albumId,
-                allowRevert: false,
-                allowMultiple: false,
-                instantUpload: false,
+                FilePond.setOptions({
+                    server: BASE_URL + '/photo?album_id='+this.albumId,
+                    allowRevert: false,
+                    allowMultiple: false,
+                    instantUpload: false,
 
-            });
+                });
 
-            const pond = FilePond.create( inputElement );
+                const pond = FilePond.create( inputElement );
 
-            pond.on('processfile', (error, file) => {
-                if (error) {
-                    console.log(error);
-                    return;
-                }
-                console.log(file);
+                pond.on('processfile', (error, file) => {
+                    if (error) {
+                        console.log(error);
+                        return;
+                    }
+                    console.log(file);
 
-                $this.goToAlbum($this.albumId);
-            });
+                    $this.goToAlbum($this.albumId);
+                });
+
+            }
+
+
         },
 
         data: function() {

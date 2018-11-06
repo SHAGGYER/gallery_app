@@ -57,7 +57,7 @@
                     if (response.data === true)
                     {
                         $this.app.user = null;
-                        $this.app.$router.push({name: 'login'});
+                        $this.app.$router.push({name: 'auth.login'});
                     }
                 });
             }

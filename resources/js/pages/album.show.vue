@@ -60,7 +60,17 @@
 
         mounted()
         {
-            this.loadAlbum();
+            if (this.app.user === null)
+            {
+                this.app.$router.push({name:'auth.login'});
+            }
+            else
+            {
+                this.loadAlbum();
+
+
+            }
+
         },
 
         methods: {

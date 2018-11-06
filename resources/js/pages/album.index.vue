@@ -44,12 +44,16 @@
         },
         mounted()
         {
-            if (!this.app.user)
+            if (this.app.user === null)
             {
                 this.app.$router.push({name:'auth.login'});
             }
+            else
+            {
+                this.getAlbums();
 
-            this.getAlbums();
+            }
+
         },
 
         methods: {

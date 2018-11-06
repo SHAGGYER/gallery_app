@@ -16,6 +16,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
+
+
         $user = Auth::user();
 
         $albums = Album::where('user_id', $user->id)->get();

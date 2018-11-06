@@ -45,6 +45,16 @@
                 desc: '',
             }
         },
+
+        mounted()
+        {
+            if (this.app.user === null)
+            {
+                this.app.$router.push({name:'auth.login'});
+            }
+
+        },
+
         methods: {
             onSubmit()
             {

@@ -84,7 +84,6 @@
 
                 if (this.email.length < 6)
                 {
-                    console.log(this.email.length);
                     this.errorEmail = 'Email has to be at least 6 characters long.';
                     this.errors.push(this.errorEmail);
                 }

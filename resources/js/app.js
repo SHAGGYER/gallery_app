@@ -40,7 +40,17 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 import Store from './store';
-const store = new Vuex.Store(Store);
+const store = new Vuex.Store({
+    state: {
+        loading: true,
+    },
+
+    mutations: {
+        setLoading(state, value) {
+            state.loading = value;
+        }
+    },
+});
 
 
 
