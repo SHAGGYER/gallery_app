@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class PhotoController extends Controller
 {
@@ -24,6 +25,12 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
+        $dir = storage_path().'/images/photos';
+        if (! File::isDir($dir) )
+        {
+            File::makeDirectory(storage_path().'/images/photos');
+        }
+
         $ext = $request->file('items')->getClientOriginalExtension();
         $filename = str_random(32).'.'.$ext;
         $file = $request->file('items');
