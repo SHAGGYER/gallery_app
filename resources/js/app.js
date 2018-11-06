@@ -9,6 +9,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+window.moment = require('moment');
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -17,13 +19,54 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+/**
+ * Vue Router
+ */
 
-// const files = require.context('./', true, /\.vue$/i)
+import routes from './routes';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
 
-// files.keys().map(key => {
-//     return Vue.component(_.last(key.split('/')).split('.')[0], files(key))
-// })
+const router = new VueRouter({
+    routes: routes
+});
+
+
+/**
+ * Vuex
+ */
+
+import Vuex from 'vuex';
+import Store from './store';
+Vue.use(Vuex);
+
+const store = new Vuex.Store(Store);
+
+
+
+/**
+ * Components
+ */
+
+/*
+Nprogress
+ */
+
+import 'nprogress/nprogress.css';
+
+/*
+Spinner
+ */
+
+/**
+ * Spinner
+ *
+ *
+ */
+
+
+Vue.component('spinner', require('vue-simple-spinner'));
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,6 +74,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app'
-});
+import App from './app.vue';
+
+new Vue({
+    router: router,
+    store: store,
+    render: h => h(App)
+}).$mount('#app');
