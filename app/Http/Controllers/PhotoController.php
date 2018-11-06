@@ -25,11 +25,6 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        $dir = storage_path().'/images/photos';
-        if (! File::isDir($dir) )
-        {
-            File::makeDirectory(storage_path().'/images/photos');
-        }
 
         $ext = $request->file('items')->getClientOriginalExtension();
         $filename = str_random(32).'.'.$ext;
