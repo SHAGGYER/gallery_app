@@ -46,7 +46,7 @@
                 FilePond.setOptions({
                     server: BASE_URL + '/photo?album_id='+this.albumId,
                     allowRevert: false,
-                    allowMultiple: false,
+                    allowMultiple: true,
                     instantUpload: false,
 
                 });
